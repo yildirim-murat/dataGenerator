@@ -4,6 +4,25 @@ import gzip
 import time
 import os
 
+maxValue = 120
+inputValue = 1
+def get_integer_input():
+    while True:
+        try:
+            value = int(input("Lütfen bir tam sayı girin: "))
+            return value
+        except ValueError:
+            print("Geçerli bir tam sayı giriniz.")
+
+if __name__ == "__main__":
+    while True:
+        number = get_integer_input()
+        if number > maxValue:
+            print(f{"Girdiğiniz değer " + {maxValue} + "'ten büyük olamaz. Lütfen " + {maxValue} + " veya daha küçük bir değer girin."})
+        else:
+            inputValue = number
+            break
+
 print("Worked! " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
 if not os.path.exists("dataSet"):
@@ -61,6 +80,7 @@ def allOperations():
         with open(filename, 'rb') as f_in:
             with gzip.open(filename + '.gz', 'wb') as f_out:
                 f_out.writelines(f_in)
+        os.remove(filename)
 
     dataset = generate_random_data()
     formatted_datetime = format_datetime()
@@ -74,6 +94,6 @@ def run_function(timeValue):
         allOperations()
 
 
-run_function(5)
+run_function(inputValue)
 
 print("It's run! " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
