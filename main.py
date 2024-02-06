@@ -64,8 +64,8 @@ def allOperations():
 
     dataset = generate_random_data()
     formatted_datetime = format_datetime()
-    save_data_to_file("C:/Users/user/Downloads/dataSet/data" + formatted_datetime + ".txt", [dataset])
-    compress_file("C:/Users/user/Downloads/dataSet/data" + formatted_datetime + ".txt")
+    save_data_to_file("./dataSet/data" + formatted_datetime + ".txt", [dataset])
+    compress_file("./dataSet/data" + formatted_datetime + ".txt")
 
 
 def run_function(timeValue):
