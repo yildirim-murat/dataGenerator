@@ -2,8 +2,12 @@ import datetime
 import random
 import gzip
 import time
+import os
 
-print("İşlem Başladı! " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+print("Worked! " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+
+if not os.path.exists("dataSet"):
+    os.makedirs("dataSet")
 
 
 def allOperations():
@@ -72,4 +76,4 @@ def run_function(timeValue):
 
 run_function(5)
 
-print("İşlem bitti! " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+print("It's run! " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
