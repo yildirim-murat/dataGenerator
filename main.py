@@ -77,8 +77,9 @@ def allOperations():
                 file.write(','.join(map(str, row)) + '\n')
 
     def compress_file(filename):
+        base_name = os.path.splitext(filename)[0]
         with open(filename, 'rb') as f_in:
-            with gzip.open(filename + '.gz', 'wb') as f_out:
+            with gzip.open(base_name + '.gz', 'wb') as f_out:
                 f_out.writelines(f_in)
         os.remove(filename)
 
