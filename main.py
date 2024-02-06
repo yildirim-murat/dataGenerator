@@ -18,7 +18,7 @@ if __name__ == "__main__":
     while True:
         number = get_integer_input()
         if number > maxValue:
-            print(f{"Girdiğiniz değer " + {maxValue} + "'ten büyük olamaz. Lütfen " + {maxValue} + " veya daha küçük bir değer girin."})
+            print(f"Girdiğiniz değer {maxValue}'ten büyük olamaz. Lütfen {maxValue} veya daha küçük bir değer girin.")
         else:
             inputValue = number
             break
