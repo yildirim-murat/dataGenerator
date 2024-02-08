@@ -92,10 +92,9 @@ def allOperations():
 
 
 def run_function(timeValue):
-    start_time = time.time()
-    while time.time() - start_time < timeValue:
+    for i in range(timeValue):
         allOperations()
-#        time.sleep(0.08)
+#       time.sleep(0.08)
 
 run_function(inputValue)
 
