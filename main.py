@@ -4,12 +4,12 @@ import gzip
 import time
 import os
 
-maxValue = 120
+maxValue = 100000
 inputValue = 1
 def get_integer_input():
     while True:
         try:
-            value = int(input("Lütfen bir tam sayı girin: "))
+            value = int(input("Kaç adet dosya üretilsin? "))
             return value
         except ValueError:
             print("Geçerli bir tam sayı giriniz.")
