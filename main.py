@@ -65,10 +65,8 @@ def allOperations():
         nat_hostname = "nat" + str(random.randint(1, 10)) + ".example.com"
 
         return (
-            msisdn, priv_ip, priv_port, pub_ip, pub_port, baslangic, sure, termination_cause, target_ip, target_port,
-            imsi,
-            imei, lac, cell, apn, ggsn_ip, ggsn_hostname, sgsn_ip, sgsn_hostname, yy, protocol, usage_octet,
-            usage_packet,
+            msisdn, priv_ip, priv_port, pub_ip, pub_port, baslangic, sure, termination_cause, target_ip, target_port, imsi,
+            imei, lac, cell, apn, ggsn_ip, ggsn_hostname, sgsn_ip, sgsn_hostname, yy, protocol, usage_octet, usage_packet,
             direction, kayit_tipi, charging_id, nat_device_ip, nat_hostname)
 
     def save_data_to_file(filename, data):
@@ -97,7 +95,7 @@ def run_function(timeValue):
     start_time = time.time()
     while time.time() - start_time < timeValue:
         allOperations()
-
+#        time.sleep(0.08)
 
 run_function(inputValue)
 
