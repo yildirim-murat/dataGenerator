@@ -4,7 +4,7 @@ import gzip
 import time
 import os
 
-maxValue = 100000
+maxValue = 120000
 inputValue = 1
 def get_integer_input():
     while True:
