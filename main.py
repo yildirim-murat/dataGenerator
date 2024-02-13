@@ -1,8 +1,15 @@
 import datetime
 import random
 import gzip
-import shutil
 import os
+import platform
+
+platformEnum = 0
+
+if platform.system() == "Windows":
+    platformEnum = 0
+elif platform.system() == "Linux":
+    platformEnum = 1
 
 
 def get_integer_input():
@@ -28,7 +35,7 @@ path = "C:\\Users\\user\\Desktop\\dataSet\\"
 os.makedirs(path, exist_ok=True)
 
 
-def generate_random_data():
+def generate_data():
     msisdn = random.randint(1000000000, 9999999999)
     priv_ip = ".".join(str(random.randint(0, 255)) for _ in range(4))
     priv_port = random.randint(0, 65535)
@@ -67,63 +74,63 @@ def generate_random_data():
 def generate_file_name():
     return path + "data" + datetime.datetime.now().strftime("%Y%m%d%H%M%S%f")
 
-def generate_file_full_name():
-    return path + generate_file_name()
 
-
-def generate_file_data():
+def compress_data():
     temp_value = ""
     for i in range(random.randint(2, 100)):
-        temp_value += str(generate_random_data()) + "\n"
+        temp_value += str(generate_data()) + "\n"
     return temp_value
 
 
-def generate_file(file_name):
+def generate_file():
     for i in range(fileNumbers + 1):
         file_name = f"{generate_file_name()}-{i + 1}.txt"
         with open(os.path.join(path, file_name), "w") as file:
-            file.write(generate_file_data())
+            file.write(compress_data())
 
 
 def file_list():
     return os.listdir(path)
 
 
-def remove_folder():
-    file_name = ""
-    os.remove(os.path.join(file_name))
+def remove_folder(file_name):
+    # os.remove(os.path.join(file_name))
+    print("remove folder " + file_name)
 
 
 def create_and_move_folder(folder_name):
-    generate_file(folder_name)
     os.makedirs(folder_name, exist_ok=True)
-    for file_name in generate_file_data():
+
+    generate_file()
+
+    for file_name in os.listdir(path):
+
         if file_name.endswith(".txt"):
-            shutil.move(os.path.join(path, file_name), os.path.join(folder_name, file_name))
-    print("make folder")
+            print("FileName:" + file_name)
+            os.rename(path + file_name, os.path.join(folder_name, file_name))
 
 
 def compress_file():
-   folder_name = generate_file_full_name()
-   create_and_move_folder(folder_name)
+    folder_name = generate_file_name()
+    create_and_move_folder(folder_name)
 
-    # with gzip.open(generate_file_name()+".gz", "wb") as compress:
-    #     for dosya_adi in os.listdir(path):
-    #         if dosya_adi.endswith(".txt"):
-    #             with open(os.path.join(path, dosya_adi), "rb") as dosya:
-    #                 compress.write(dosya.read())
-
+    with gzip.open(folder_name + ".gz", "wb") as gzip_file:
+        for file in os.listdir():
+            with open(file,"rb") as file_obj:
+                gzip_file.write(file_obj.read())
 
     remove_folder(folder_name)
 
 
-compress_file()
+def run_function():
+    compress_file()
+
+
+run_function()
 
 print("It's run! " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
-
-
-# *************************** * * * * * * * * * * * * * * * * * * * * * * *
+# **************************************************
 #     def compress_file(filename):
 #         base_name = os.path.splitext(filename)[0]
 #         with open(filename, 'rb') as f_in:
