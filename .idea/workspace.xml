@@ -21,6 +21,26 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;yildirim-murat&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="recentNewPullRequestHead">
+      <RepoCoordinatesHolder>
+        <option name="owner" value="yildirim-murat" />
+        <option name="repository" value="dataGenerator" />
+      </RepoCoordinatesHolder>
+    </option>
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="6d01e8a4-ba97-4f1a-bce4-644901e94d30" />
+        <option name="url" value="https://github.com/yildirim-murat/dataGenerator.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -98,7 +118,10 @@
       <workItem from="1707813090454" duration="408000" />
       <workItem from="1707813706764" duration="1065000" />
       <workItem from="1707815063969" duration="672000" />
-      <workItem from="1707815820253" duration="871000" />
+      <workItem from="1707815820253" duration="1640000" />
+      <workItem from="1707820880687" duration="694000" />
+      <workItem from="1707821837205" duration="5277000" />
+      <workItem from="1707827447206" duration="755000" />
     </task>
     <task id="LOCAL-00001" summary="branch 2 created">
       <option name="closed" value="true" />
@@ -124,7 +147,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707810411493</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="updated main">
+      <option name="closed" value="true" />
+      <created>1707816997510</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1707816997510</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +179,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="updated main" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/dataGenerator$main.coverage" NAME="main Coverage Results" MODIFIED="1707816516268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/dataGenerator$main.coverage" NAME="main Coverage Results" MODIFIED="1707828146887" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
