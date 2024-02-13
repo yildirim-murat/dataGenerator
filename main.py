@@ -11,7 +11,7 @@ inputValue = 1
 def get_integer_input():
     while True:
         try:
-            value = int(input("Kaç adet sıkıştırılmış dosya üretilsin? "))
+            value = int(input("Kaç adet dosya üretilsin? "))
             return value
         except ValueError:
             print("Geçerli bir tam sayı giriniz.")
@@ -77,7 +77,7 @@ def allOperations():
     def save_data_to_file(filename, data):
         with open(filename, 'w') as file:
             for row in data:
-                file.write(',\n'.join(map(str, row)))
+                file.write(',\n'.join(map(str, row)) + '\n')
 
     def compress_file(filename):
         base_name = os.path.splitext(filename)[0]
@@ -88,21 +88,23 @@ def allOperations():
         new_compressed_filename = os.path.splitext(filename)[0] + '.gz'
         os.rename(filename + '.gz', filename[:-4] + '.gz')
         os.remove(filename)
-
-    dataset = []
-    value = random.randint(2, 10)
-    for i in range(value):
+    dataset=[]
+    for i in range(random.randint(2,15)):
         dataset.append(generate_random_data())
-    # dataset = generate_random_data()
     formatted_datetime = format_datetime()
-    save_data_to_file("./dataSet/data" + formatted_datetime + ".txt", [dataset])
-    compress_file("./dataSet/data" + formatted_datetime + ".txt")
+
+    path="./dataSet/data" + formatted_datetime + ".txt"
+
+    save_data_to_file(path, [dataset])
+    compress_file(path)
 
 
 def run_function(timeValue):
     for i in range(timeValue):
         allOperations()
 
+
+#       time.sleep(0.08)
 
 run_function(inputValue)
 
