@@ -2,7 +2,6 @@ import datetime
 import random
 import gzip
 import tarfile
-import time
 import os
 
 maxValue = 100000
@@ -80,28 +79,21 @@ def allOperations():
             for row in data:
                 file.write(',\n'.join(map(str, row)))
 
-    def compress_file(filename):
-        base_name = os.path.splitext(filename)[0]
-        with open(filename, 'rb') as f_in:
-            with gzip.open(filename + '.gz', 'wb') as f_out:
-                f_out.writelines(f_in)
-
-        new_compressed_filename = os.path.splitext(filename)[0] + '.gz'
-        os.rename(filename + '.gz', filename[:-4] + '.gz')
-        os.remove(filename)
-
-    def comp2(file_name):
+    def compress_file(file_name):
         files = os.listdir(".\\dataSet\\")
-        print("Bulunan dosya isimleri: ",files)
 
-        with tarfile.open(file_name + ".tar","w") as tar:
+        with tarfile.open(file_name[:-4] + ".tar", "w") as tar:
             for file in files:
                 if file.endswith(".txt"):
                     tar.add(os.path.join(".\\dataSet\\", file), arcname=file)
 
-        with open(file_name + ".tar", "rb") as tar_dosya:
+        with open(file_name[:-4] + ".tar", "rb") as tar_dosya:
             with gzip.open(file_name + ".tar.gz", "wb") as file:
                 file.write(tar_dosya.read())
+        os.rename(file_name + '.tar.gz', file_name[:-4] + '.tar.gz')
+
+        os.remove(file_name)
+        os.remove(file_name[:-4]+".tar")
 
     dataset = []
     for i in range(random.randint(2, 15)):
@@ -111,8 +103,7 @@ def allOperations():
     path = "./dataSet/data" + formatted_datetime + ".txt"
 
     save_data_to_file(path, [dataset])
-    # compress_file(path)
-    comp2(path[:-4])
+    compress_file(path)
 
 
 def run_function(timeValue):
