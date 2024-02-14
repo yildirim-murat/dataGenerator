@@ -10,6 +10,7 @@ def get_integer_input():
     while True:
         try:
             value = int(input("Kaç adet dosya üretilsin? "))
+            print("Worked! " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
             return value
         except ValueError:
             print("Geçerli bir tam sayı giriniz.")
@@ -88,3 +89,4 @@ def run_function():
 
 
 run_function()
+print("It's run! " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
