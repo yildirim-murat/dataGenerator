@@ -4,6 +4,7 @@ import random
 import tarfile
 
 path = '.\\dataSet\\'
+os.mkdir(path)
 
 
 def get_integer_input():
