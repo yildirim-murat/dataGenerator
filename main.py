@@ -4,7 +4,7 @@ import random
 import tarfile
 
 path = '.\\dataSet\\'
-os.mkdir(path)
+os.mkdir(path) if not os.path.exists(path) else None
 
 
 def get_integer_input():
