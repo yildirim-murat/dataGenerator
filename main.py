@@ -10,7 +10,8 @@ os.mkdir(path) if not os.path.exists(path) else None
 def get_integer_input():
     while True:
         try:
-            value = int(input("Kaç adet dosya üretilsin? "))
+            # value = int(input("Kaç adet dosya üretilsin? "))
+            value = random.randint(2,15)
             print("Worked! " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
             return value
         except ValueError:
